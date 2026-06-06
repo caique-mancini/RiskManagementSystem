@@ -13,7 +13,17 @@ CREATE TABLE IF NOT EXISTS product (
 )
 """)
 
+cursor.execute("""
+CREATE TABLE IF NOT EXISTS hazard (
+    hazard_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    product_id INTEGER NOT NULL,
+    hazard_category TEXT,
+    hazard_description TEXT,
+    FOREIGN KEY (product_id) REFERENCES product(product_id)
+)
+""")
+
 conn.commit()
 conn.close()
 
-print("Tabela Product criada com sucesso!")
+print("Tabelas criadas com sucesso!")
