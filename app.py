@@ -10,3 +10,5 @@ st.title("Risk Management System")
 st.write("ISO 14971 Risk Management")
 
 st.success("Aplicação funcionando!")
+
+#py -m streamlit run app.py
