@@ -32,3 +32,26 @@ event_order = st.number_input(
 description_sequence = st.text_input(
     "Descrição do Evento"
 )
+
+if st.button("Salvar"):
+
+    conn = sqlite3.connect(db_path)
+
+    cursor = conn.cursor()
+
+    cursor.execute("""
+    INSERT INTO sequence_event
+    (hazard_id, event_order, description_sequence)
+    VALUES (?, ?, ?)
+    """,
+    (
+        hazard_escolhido[0],
+        event_order,
+        description_sequence
+    ))
+
+    conn.commit()
+
+    conn.close()
+
+    st.success("Sequence Event cadastrado com sucesso!")
