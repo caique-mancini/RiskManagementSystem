@@ -23,7 +23,21 @@ CREATE TABLE IF NOT EXISTS hazard (
 )
 """)
 
+cursor.execute("""
+CREATE TABLE IF NOT EXISTS sequence_event (
+    sequence_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    hazard_id INTEGER NOT NULL,
+    event_order INTEGER,
+    description_sequence TEXT,
+    FOREIGN KEY (hazard_id)
+        REFERENCES hazard(hazard_id)
+)
+""")
+
 conn.commit()
 conn.close()
 
 print("Tabelas criadas com sucesso!")
+
+#py database/create_db.py
+#python database/create_db.py
