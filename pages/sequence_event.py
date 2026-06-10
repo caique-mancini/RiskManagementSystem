@@ -6,6 +6,10 @@ db_path = Path(__file__).parent.parent / "database" / "database.db"
 
 st.title("Cadastro de Sequence Event")
 
+conn = sqlite3.connect(db_path)
+
+cursor = conn.cursor()
+
 cursor.execute("""
 SELECT hazard_id, hazard_description
 FROM hazard
