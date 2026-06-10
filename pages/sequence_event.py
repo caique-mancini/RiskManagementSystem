@@ -22,3 +22,13 @@ hazard_escolhido = st.selectbox(
     hazards,
     format_func=lambda x: x[1]
 )
+
+event_order = st.number_input(
+    "Ordem do Evento",
+    min_value=1,
+    step=1
+)
+
+description_sequence = st.text_input(
+    "Descrição do Evento"
+)
