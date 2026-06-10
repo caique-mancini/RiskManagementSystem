@@ -55,3 +55,20 @@ if st.button("Salvar"):
     conn.close()
 
     st.success("Sequence Event cadastrado com sucesso!")
+
+    st.subheader("Sequence Events cadastrados")
+
+conn = sqlite3.connect(db_path)
+
+cursor = conn.cursor()
+
+cursor.execute("""
+SELECT *
+FROM sequence_event
+""")
+
+dados = cursor.fetchall()
+
+conn.close()
+
+st.dataframe(dados)
