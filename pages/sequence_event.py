@@ -16,6 +16,7 @@ FROM hazard
 """)
 
 hazards = cursor.fetchall()
+conn.close()
 
 hazard_escolhido = st.selectbox(
     "Hazard",
@@ -54,17 +55,25 @@ if st.button("Salvar"):
 
     conn.close()
 
-    st.success("Sequence Event cadastrado com sucesso!")
+st.success("Sequence Event cadastrado com sucesso!")
 
-    st.subheader("Sequence Events cadastrados")
+# aqui inseri um join para trazer o nome do hazard e nao o ID.
+
+st.subheader("Sequence Events cadastrados")
 
 conn = sqlite3.connect(db_path)
 
 cursor = conn.cursor()
 
 cursor.execute("""
-SELECT *
+SELECT 
+    sequence_event.sequence_id,
+    hazard.hazard_description,
+    sequence_event.event_order,
+    sequence_event.description_sequence
 FROM sequence_event
+JOIN hazard
+ON sequence_event.hazard_id = hazard.hazard_id
 """)
 
 dados = cursor.fetchall()
