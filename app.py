@@ -11,5 +11,6 @@ st.write("ISO 14971 Risk Management")
 
 st.success("Aplicação funcionando!")
 
-#py ou python -m streamlit run app.py
+#py ou python -m streamlit run app.py 
+# Streamlit app URL: https://caique-mancini-riskmanagementsystem-app-gavkgz.streamlit.app/
 
