@@ -80,4 +80,16 @@ dados = cursor.fetchall()
 
 conn.close()
 
-st.dataframe(dados)
+import pandas as pd
+
+df = pd.DataFrame(
+    dados,
+    columns=[
+        "ID",
+        "Hazard",
+        "Ordem do Evento",
+        "Descrição do Evento"
+    ]
+)
+
+st.dataframe(df)
