@@ -4,7 +4,7 @@ from pathlib import Path
 
 db_path = Path(__file__).parent.parent / "database" / "database.db"
 
-st.title("Cadastro de Hazard")
+st.title("Hazard Registration")
 
 conn = sqlite3.connect(db_path)
 
